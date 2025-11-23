@@ -1,4 +1,4 @@
-# Tab Link Saver Browser Extension
+# SaveLink Browser Extension
 
 A simple browser extension that saves all your currently open tab URLs to a downloadable text file.
 
