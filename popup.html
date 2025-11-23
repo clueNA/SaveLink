@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tab Link Saver</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>📋 Tab Link Saver</h1>
+    <p class="description">Save all your open tab links to a text file</p>
+    
+    <div id="status" class="status hidden"></div>
+    
+    <button id="saveButton" class="save-button">
+      💾 Save All Tab Links
+    </button>
+    
+    <div class="info">
+      <p class="tab-count">Open tabs: <span id="tabCount">--</span></p>
+    </div>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>

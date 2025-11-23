@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "SaveLink",
+  "version": "1.0",
+  "description": "Save all open tab links to a downloadable text file",
+  "permissions": [
+    "tabs",
+    "downloads"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon.png",
+      "48": "icon.png",
+      "128": "icon.png"
+    }
+  },
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  }
+}

@@ -1,0 +1,103 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 320px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #333;
+}
+
+.container {
+  padding: 20px;
+}
+
+h1 {
+  color: white;
+  font-size: 24px;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.description {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.save-button {
+  width: 100%;
+  padding: 14px 20px;
+  background: white;
+  color: #667eea;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.save-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  background: #f8f9ff;
+}
+
+.save-button:active {
+  transform: translateY(0);
+}
+
+.save-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.info {
+  margin-top: 15px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  backdrop-filter: blur(10px);
+}
+
+.tab-count {
+  color: white;
+  font-size: 14px;
+  text-align: center;
+  font-weight: 500;
+}
+
+#tabCount {
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.status {
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.status.hidden {
+  display: none;
+}
+
+.status.success {
+  background: #10b981;
+  color: white;
+}
+
+.status.error {
+  background: #ef4444;
+  color: white;
+}
