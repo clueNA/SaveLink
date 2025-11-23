@@ -1,3 +1,5 @@
+![SaveLink](https://socialify.git.ci/clueNA/SaveLink/image?font=Raleway&language=1&name=1&owner=1&pattern=Transparent&stargazers=1&theme=Dark)
+
 # SaveLink Browser Extension
 
 A simple browser extension that saves all your currently open tab URLs to a downloadable text file.
