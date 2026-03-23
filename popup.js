@@ -120,3 +120,59 @@ function showStatus(message, type) {
     status.className = 'status hidden';
   }, 3000);
 }
+
+// Extract all http/https URLs from text content
+function extractUrls(text) {
+  // Exclude characters that are never valid unencoded in URLs
+  const urlRegex = /https?:\/\/[^\s<>"{}|\\^`[\]]+/g;
+  const matches = text.match(urlRegex) || [];
+  return matches.map(url => {
+    // Strip trailing sentence punctuation unlikely to be part of a URL
+    url = url.replace(/[.,;:!?]+$/, '');
+    // Strip trailing ) only when there is no matching ( inside the URL
+    // (preserves Wikipedia-style URLs like /wiki/Python_(programming_language))
+    while (url.endsWith(')') && !url.includes('(')) {
+      url = url.slice(0, -1);
+    }
+    return url;
+  });
+}
+
+// Open Links from File button triggers file picker
+document.getElementById('openFileButton').addEventListener('click', () => {
+  document.getElementById('fileInput').click();
+});
+
+// Handle file selection
+document.getElementById('fileInput').addEventListener('change', async (event) => {
+  const file = event.target.files[0];
+  if (!file) return;
+
+  // Reset file input so the same file can be selected again
+  event.target.value = '';
+
+  const openFileButton = document.getElementById('openFileButton');
+  openFileButton.disabled = true;
+  openFileButton.textContent = '⏳ Opening links...';
+
+  try {
+    const text = await file.text();
+    const urls = extractUrls(text);
+
+    if (urls.length === 0) {
+      showStatus('No links found in file.', 'error');
+      return;
+    }
+
+    await Promise.all(urls.map(url => chrome.tabs.create({ url, active: false })));
+
+    await updateTabCount();
+    showStatus(`✓ Opened ${urls.length} link${urls.length === 1 ? '' : 's'} from file!`, 'success');
+  } catch (error) {
+    console.error('Error opening links from file:', error);
+    showStatus('Error reading file. Please try again.', 'error');
+  } finally {
+    openFileButton.disabled = false;
+    openFileButton.textContent = '📂 Open Links from File';
+  }
+});
